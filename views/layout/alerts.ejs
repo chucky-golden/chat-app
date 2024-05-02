@@ -1,0 +1,18 @@
+<div class="form-group p-3">
+    <%
+        if(typeof message !== 'undefined'){
+            if(errorcode === '0'){ 
+            %>
+                <div class="alert alert-success alert-dismissible">
+                    <button class="btn-close" data-bs-dismiss="alert"></button>
+                    <div><%= message %></div>
+                </div>
+            <% }else{ %>
+                <div class="alert alert-danger alert-dismissible">
+                    <button class="btn-close" data-bs-dismiss="alert"></button>
+                    <div><%= message %></div>
+                </div>
+            <% }
+        }
+    %>
+</div>

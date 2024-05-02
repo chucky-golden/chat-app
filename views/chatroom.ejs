@@ -1,0 +1,56 @@
+<%- include('./layout/header.ejs') %>
+
+        <h5 class="mb-4">Private chat: <%= friend.name %> <span style="display: none;" id="activeUser"><%= user.name %></span> <span style="display: none;" id="activeUserid"><%= user._id %></span></h5>
+
+        <div class="row mt-4">
+            <div class="col-md-9">
+                <div class="chat-section" id="chat-section">
+                    <h3 class="text-primary fw-bold">Chat room <span id="notify"></span></h3>
+                    <div id="chat-container">
+                        <div class="d1" id="d1">
+                            <% if (chats.length > 0){ %>
+                                <% chats.forEach(chat => { 
+                                    let from = chat.sender_id == user._id ? 'me' : friend.name
+                                    let rowclass = chat.sender_id == user._id ? 'd-flex justify-content-start mb-2' : 'd-flex justify-content-end mb-4'
+                                    let bgclass = chat.sender_id == user._id ? 'bg-info sent text-dark' : 'bg-primary sent'
+
+                                    var d = new Date(); 
+                                    var dt = d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + " "  
+                                        + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds(); 
+                                    
+                                    %>
+
+                                    <div class="<%= rowclass %>">
+                                            <div class="<%= bgclass %>">
+                                                <p><b><%= from %>:</b><br><%= chat.message %></p>
+                                                <p class="d-flex justify-content-end"><%= dt %></p>
+                                            </div>
+                                    </div>
+
+
+                                <% }) %>
+                            <% } %>
+                        </div>
+                    </div>
+                    <form action="" id="chat-form">
+                        <div class="form-group mt-2">
+                            <textarea name="message" id="msg" class="form-control borders" placeholder="enter message" required></textarea>
+                            <input type="hidden" name="" id="chatuser" value="<%= friend.name %>">
+                            <input type="hidden" name="" id="chatuserid" value="<%= friend._id %>">
+                        </div>
+                        <div class="mt-2 form-group">
+                            <button class="btn btn-primary sendm">send message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="/dist/js/socket.io.js"></script>
+<script src="/dist/js/jquery-3.2.1.min.js"></script>
+<script src="/dist/js/all.js"></script>
+<script src="/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/dist/js/main.js"></script>
+</html>

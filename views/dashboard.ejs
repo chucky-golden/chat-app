@@ -1,0 +1,36 @@
+<%- include('./layout/header.ejs') %>
+
+        <h1 class="mb-4">Hii, <%= user.name %> <span style="display: none;" id="activeUser"><%= user.name %></span> <span style="display: none;" id="activeUserid"><%= user._id %></span></h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <% if (users.length > 0){ %>
+                        <% users.forEach(muser => { %>
+
+                            <li class="list-group-item cursor-pointer user-list">
+                                <a href="/chat/<%= muser._id %>">
+                                    <img src="/uploads/<%= muser.image %>" alt="" width="50px" height="50px">
+                                    <span><%= muser.name %></span>
+                                    <span style="display: none;"><%= muser._id %></span>
+                                </a>
+                            </li>
+
+                        <% }) %>
+                    <% }else{ %>
+
+                        <li class="list-group-item">
+                            No users yet...
+                        </li>
+
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="/dist/js/jquery-3.2.1.min.js"></script>
+<script src="/dist/js/all.js"></script>
+<script src="/dist/js/bootstrap.bundle.min.js"></script>
+</html>

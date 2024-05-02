@@ -1,0 +1,61 @@
+.dash .one{
+    padding: 10px;
+    background-color: black;
+    height: 100%;
+    position: fixed;
+    top: 0;
+}
+.dash .one h4{
+    font-weight: bolder;
+    color: white;
+}
+.dash .one ul li a{
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+.dash .tab-pane{
+    padding: 30px;
+}
+.dash .two{
+    margin-left: 18%;
+    width: 80%;
+    padding-top: 70px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+#chat-container{
+    background-color: black;
+    color: white;
+    width: 90%;
+    height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    transform: rotate(180deg);
+}
+#chat-container .d1{
+    transform: rotate(180deg);
+}
+#chat-container .d1 .sent{
+    width: 60%;
+    padding: 5px;
+}
+.borders{
+    border: 1px solid black;
+    width: 90%;
+}
+.sendm{
+    width: 90%;
+}
+.start-head{
+    font-weight: bold;
+}
+#notify{
+    color: black;
+    font-size: 15px;
+}
+.list-group li a{
+    text-decoration: none;
+    color: black;
+}
